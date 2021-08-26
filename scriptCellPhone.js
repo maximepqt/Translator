@@ -46,6 +46,7 @@ function translateText(){
 
     let userText = document.getElementById('userInputText').value;
     console.log("bien vue");
+    userText = userText.toLowerCase();
     console.log(userText);
 }
 
