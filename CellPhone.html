@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styleCellPhone.css">
+    <script src="scriptCellPhone.js" defer></script>
     <title>CellPhone Translator</title>
 </head>
 <body>
@@ -14,8 +15,22 @@
             <p>CellPhone Translator</p>
         </div>
     </header>
-
-    <img src="images/CellphoneImage.PNG" alt="">
+    <div class="main">
+        <div class="image">
+            <img src="images/CellphoneImage.PNG" alt="">
+        </div>
+        <div class="gestionUtilisateur">
+            <textarea name="userInput" id="userInput" cols="100" rows="10" placeholder="Texte à traduire" wrap="hard"></textarea>
+            <input type="submit" value="Translate">
+        </div>
+        <div class="resulTtranslate">
+            <p id="translation"> test</p>
+            
+        </div>
+        <div id="copyButton">
+            <input type="button" value="Copy">
+        </div>
+    </div>
     
 </body>
 </html>
