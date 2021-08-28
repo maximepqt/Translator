@@ -23,31 +23,27 @@ var translator = [
     ['o', 666]
   ];
 
-//   console.log(translator[1][1]);
-//   console.log(translator[0][1]);
-//   let x=0;
-//   let y=0;
-//   for(let i =0;i<26;i++){
-    
-//     console.log(translator[x][y]);
-//     x++;
-
-//   }
-
- for (var i = 0; i < translator.length; i++) {
-    // console.log(translator[i][0]);
-    //  console.log(translator[i][1]);
-    if(translator[i][0]=='a'){
-        console.log(translator[i][1]);
-    }
-}
-
 function translateText(){
 
     let userText = document.getElementById('userInputText').value;
-    console.log("bien vue");
     userText = userText.toLowerCase();
-    console.log(userText);
+
+    for (let i = 0; i < userText.length; i++) {
+        if(userText[0]==" " )
+        {
+            alert("Enleve l'espace devant votre phrase");
+            window.location.reload();
+        }
+        else if( userText[0]=="'" || userText[0]=="," || userText[0]=="^" || userText[0]=="é" || userText[0]=="@" || userText[0]=="è" || userText[0]=="&")
+        {
+            alert("Pas de caractere special comme ' , # ^ é @ é & etc");
+            window.location.reload();
+        }
+        else if(userText[i]===" ")
+        {
+            console.log("Espace" +i );
+        }
+    }
 }
 
 document.getElementById('Button').addEventListener('click',function(){
