@@ -44,28 +44,42 @@ function translateText(){
     userText = userText.toLowerCase(); // on met en minuscule pour eviter les erreurs dans le tableau
     let toTranslate = [userText.length];
 
-    for (let i = 0; i < userText.length; i++) {//on parcours le text du USER
-        toTranslate[i] = userText[i];
-        
-        if(userText[0]==" " )// si il y a un espace au debut on lui dit que c'est pas possible et on refresh
-        {
-            alert("Enleve l'espace devant votre phrase");
-            window.location.reload();
-        }
-        else if( userText[0]=="'" || userText[0]=="," || userText[0]=="^" || userText[0]=="é" || userText[0]=="@" || userText[0]=="è" || userText[0]=="&")// si il a des carac speciaux  on lui dit que c'est pas possible et on refresh
-        {
-            alert("Pas de caractere special comme ' , # ^ é @ é & etc");
-            window.location.reload();
-        }
-        
-        for (let y =0;y<26;y++){// on compare l'indice i du user avec les 26 possibilitées du translator pour trouver une occurence 
-            if(toTranslate[i]==translator[y][0]){
-                toTranslate[i] = translator[y][1];// si l'occurence est trouvé alors on convertie la lettre en chiffre
+    if(userText[0] == undefined){// on verifie le user a rentré du texte si non on lui dit d'en mettre et on refresh
+        alert("Il faut mettre du texte");
+        resultTranslation.innerText = "";
+        window.location.reload();
+    }else{// il y a du texte donc on commence la traduction
+
+        for (let i = 0; i < userText.length; i++) {//on parcours le text du USER
+            toTranslate[i] = userText[i];
+            
+            if(userText[0]==" " )// si il y a un espace au debut on lui dit que c'est pas possible et on refresh
+            {
+                alert("Enleve l'espace devant votre phrase");
+                window.location.reload();
             }
+            else if( userText[0]=="'" || userText[0]=="," || userText[0]=="^" || userText[0]=="é" || userText[0]=="@" || userText[0]=="è" || userText[0]=="&")// si il a des carac speciaux  on lui dit que c'est pas possible et on refresh
+            {
+                alert("Pas de caractere special comme ' , # ^ é @ é & etc");
+                window.location.reload();
+            }
+           
+            
+            for (let y =0;y<26;y++){// on compare l'indice i du user avec les 26 possibilitées du translator pour trouver une occurence 
+                if(toTranslate[i]==translator[y][0]){
+                    toTranslate[i] = translator[y][1];// si l'occurence est trouvé alors on convertie la lettre en chiffre
+                   
+                }
+            }
+            
+            
         }
-        
+        resultTranslation.innerText = toTranslate.join(' '); // on met un espace entre chaque chiffre pour la lisibilité
+
     }
-    resultTranslation.innerText = toTranslate.join(' '); // on met un espace entre chaque chiffre pour la lisibilité
+    
+
+    
     
 }
 
