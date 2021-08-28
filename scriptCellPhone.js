@@ -58,7 +58,7 @@ function translateText(){
                 alert("Enleve l'espace devant votre phrase");
                 window.location.reload();
             }
-            else if( userText[0]=="'" || userText[0]=="," || userText[0]=="^" || userText[0]=="é" || userText[0]=="@" || userText[0]=="è" || userText[0]=="&")// si il a des carac speciaux  on lui dit que c'est pas possible et on refresh
+            else if( userText[i]=="'" || userText[i]=="," || userText[i]=="^" || userText[i]=="é" || userText[i]=="@" || userText[i]=="è" || userText[i]=="&" || userText[i]=='"')// si il a des carac speciaux  on lui dit que c'est pas possible et on refresh
             {
                 alert("Pas de caractere special comme ' , # ^ é @ é & etc");
                 window.location.reload();
